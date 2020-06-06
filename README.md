@@ -11,4 +11,5 @@ All the searches I have done on this topic seem to focus on setting the items me
 ## Connections
 Stack the RAMPS board on top of the Arduino Mega. 
 The RAMPS board has the following basic configuration:
-<image of ramps board>
+![RAMPS Layout](https://github.com/haemishkyd/arduino_ramps/blob/master/RAMPS-connections.jpg)
+image credit [NelisW](https://github.com/NelisW)
