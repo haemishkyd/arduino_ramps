@@ -19,3 +19,44 @@ The A4988 needs to be placed onto the RAMPS. I have chosen to use Extruder Motor
 In the image above the top right hand pin of each drivers slot is GND.The bottom left will be EN. Orientate your stepper driver appropriately.
 See the image below for the basic concept:
 ![My Setup](https://github.com/haemishkyd/arduino_ramps/blob/master/RAMPS_with_driver.jpg)
+
+Next the NEMA 17 needs to be connected to the RAMPS board. The motor I had had the following configuration for the wire colours:
+* Black: 1B
+* Green: 1A
+* Blue: 2A
+* Red: 2B
+I connected it as per the diagram below:
+![Connections](https://github.com/haemishkyd/arduino_ramps/blob/master/NEMA_Connections.png)
+
+## Software
+The A4988 needs 3 main signals. 
+* Enable
+* Step
+* Direction
+The circuit diagram for the RAMPS board is provided here:
+
+![RAMPS Circuit](https://github.com/haemishkyd/arduino_ramps/blob/master/RAMPS1.4schematic.png)
+
+Since I have chosen E1 as my port on the RAMPS, the pins:
+* E1-EN (D30)
+* E1-DIR (D34)
+* E1-STEP (D36) 
+are the appropriate ones.
+The pin E1-EN has a pull up which means to enable the driver you will need to phycially pull it down.
+
+## Communications
+Serial comms is the easiest way to get instructions to the board. The serial comms are accessed through AUX-1.
+The diagram is given below:
+
+![Ramps Gerber](https://github.com/haemishkyd/arduino_ramps/blob/master/ramps_layout.jpg)
+
+D1 and D0 are the default serial port on the Arduino Mega.
+* D0-Rx
+* D1-Tx
+
+Like so:
+
+![Tx and Rx](https://github.com/haemishkyd/arduino_ramps/blob/master/serial_comms_RAMPS1.4.png)
+
+
+
