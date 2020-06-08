@@ -17,3 +17,5 @@ image credit [NelisW](https://github.com/NelisW)
 
 The A4988 needs to be placed onto the RAMPS. I have chosen to use Extruder Motor 1 for this project. The choice does not matter but the relevant pins will be required.
 In the image above the top right hand pin of each drivers slot is GND.The bottom left will be EN. Orientate your stepper driver appropriately.
+See the image below for the basic concept:
+![My Setup](https://github.com/haemishkyd/arduino_ramps/blob/master/RAMPS_with_driver.jpg)
