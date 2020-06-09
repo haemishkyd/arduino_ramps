@@ -28,6 +28,10 @@ Next the NEMA 17 needs to be connected to the RAMPS board. The motor I had had t
 I connected it as per the diagram below:
 ![Connections](https://github.com/haemishkyd/arduino_ramps/blob/master/NEMA_Connections.png)
 
+Final connections are as follows:
+
+![Final](https://github.com/haemishkyd/arduino_ramps/blob/master/final.jpg)
+
 ## Software
 The A4988 needs 3 main signals. 
 * Enable
