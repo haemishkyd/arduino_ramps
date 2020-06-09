@@ -58,5 +58,7 @@ Like so:
 
 ![Tx and Rx](https://github.com/haemishkyd/arduino_ramps/blob/master/serial_comms_RAMPS1.4.png)
 
+## Resources
+[Connecting a NEMA17, Arguino Mega and A4988 without a RAMPS Board](https://howtomechatronics.com/tutorials/arduino/how-to-control-stepper-motor-with-a4988-driver-and-arduino/)
 
 
