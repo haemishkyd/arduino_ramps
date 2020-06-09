@@ -48,6 +48,57 @@ Since I have chosen E1 as my port on the RAMPS, the pins:
 are the appropriate ones.
 The pin E1-EN has a pull up which means to enable the driver you will need to phycially pull it down.
 
+### Software Description
+#### Setup
+```
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(LED_BUILTIN, OUTPUT);
+  // Sets the two pins as Outputs
+  pinMode(stepPin,OUTPUT); 
+  pinMode(dirPin,OUTPUT);
+  pinMode(enPin,OUTPUT);
+  digitalWrite(enPin,LOW);
+  Serial.begin(115200);
+  inputString.reserve(200);
+```
+  
+  This setup code asigns the step, dir and enable pins as outputs. It also sets the serial baud rate.
+#### Main Code Loop
+```
+    if (stringComplete == true){    
+    String rotations = inputString.substring(1,5);
+    String direction_data = inputString.substring(0,1);
+    Serial.print(direction_data);
+    float rotations_frac = rotations.toFloat();
+    Serial.print(rotations_frac);
+    inputString = "";
+    stringComplete = false;
+    digitalWrite(LED_BUILTIN, HIGH);
+    if (direction_data.equals("F")){
+      digitalWrite(LED_BUILTIN, HIGH);
+      digitalWrite(dirPin,HIGH);
+    }
+    if (direction_data.equals("B")){
+      digitalWrite(LED_BUILTIN, LOW);
+      digitalWrite(dirPin,LOW);
+    }
+    for(int x = 0; x < rotations_frac*1600; x++) {
+      step();
+    }
+  }  
+```
+
+  The only intelligent bit in this code involves the parsing of the serial message. The direction pin is then determined by the serial message (forward 'F' or back 'B'). Since MS1, MS2 and MS3 are all jumpered, the actual numbers of steps per revolution is 1600. Hence the fraction sent is mutliplied by 1600.
+
+#### Step Code
+```
+  digitalWrite(stepPin,HIGH); 
+  delayMicroseconds(500); 
+  digitalWrite(stepPin,LOW); 
+  delayMicroseconds(500); 
+```
+  This code literally pulses the stepper motor each time it is called.
+  
 ## Communications
 Serial comms is the easiest way to get instructions to the board. The serial comms are accessed through AUX-1.
 The diagram is given below:
